@@ -1,0 +1,92 @@
+<head>
+    <title>Slot Machine Simulation</title>
+</head>
+
+<body>
+<div id="main">
+    <h1>Welcome to Slot Machine Simulation!</h1>
+
+    <div id="transition">
+        <div class="container main">
+            {{> runSimulation }}
+            {{> results }}
+            {{> searchGame }}
+                <hr>
+            {{> cleanDB }}
+        </div>
+    </div>
+
+</div>
+</body>
+
+<template name="runSimulation">
+    <input type="text" name="initalBudget" id="initalBudget" placeholder="Initial Budget"/>
+
+    Set the initial budget and click
+    <button style="margin-bottom: 3px">here</button>
+    to start simulation
+</template>
+
+<template name="results">
+    {{#if spinnerExists}}
+        {{> spinner}}
+        {{/if}}
+    <table class="table table-hover table-nomargin">
+        <thead>
+        <tr>
+            <th>Initial Budget</th>
+            <th>Percantage won</th>
+            <th>Biggest win</th>
+            <th>Casino won</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each simulation}}
+            <tr>
+                <td>{{initialMoney}}</td>
+                <td>{{percentageWon}} %</td>
+                <td>{{biggestWin}}</td>
+                <td>{{casinoWinnings}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>
+<template name="searchGame">
+    <select name="initialMoney" id="initialMoney">
+        {{#each simulation}}
+            <option value="{{initialMoney}}">{{initialMoney}}</option>
+        {{/each}}
+    </select>
+<input type="text" name="iterationNumber" id="iterationNumber" placeholder="iteration number">
+    <button>Search Iteration</button>
+
+    {{#if iterationFound}}
+    <table class="table table-hover table-nomargin">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Cash Paid</th>
+            <th>Reel Line</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each game}}
+            <tr>
+                <td>{{gameNumber}}</td>
+                <td>{{cashPayed}}</td>
+                <td>{{#each reelLine}}
+                    <img src="/fruits/{{this}}.png" class="fruits">
+                {{/each}}
+            </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{/if}}
+
+</template>
+
+<template name="cleanDB">
+    <button>Clean the DB</button>
+</template>

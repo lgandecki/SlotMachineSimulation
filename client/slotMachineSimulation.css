@@ -1,0 +1,53 @@
+.main {
+    background: #eee;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+body {
+    background: #26393D;
+    color: #666666;
+    margin: 40px;
+}
+
+button {
+    margin-bottom: 9px;
+}
+
+h1 {
+    color: #eee;
+
+}
+.container {
+    margin-top: 80px;
+}
+
+.program {
+    background: #f2f2f2;
+
+}
+.hero-unit {
+    padding-top: 10px;
+}
+
+.program h2 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.newTask {
+    background: #26393D !important;
+    color: #f2f2f2 !important;
+}
+
+.logRow {
+    border-bottom: 3px dashed #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+
+.fruits {
+    width: 5%;
+}
